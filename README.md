@@ -1,4 +1,4 @@
 # nuclear
-# Intallation
+## Installation
 
 devtools::install_github("rafaelsdesouza/nuclear")
