@@ -42,13 +42,13 @@
 sfactorTdn <- function(ECM,ER,gi,gf){
 
 # Constants
-m1_i = 3.016; m2_i = 2.014;		# masses (amu) of t and d
-m1_f = 4.0026; m2_f = 1.0087;	# masses (amu) of n and 4He
+m1_i = 3.01550; m2_i = 2.01355;		# masses (amu) of t and d
+m1_f = 4.00151; m2_f = 1.008664;	# masses (amu) of n and 4He
 z1_i = 1; z2_i = 1;			# charges of t and d
 z1_f = 2; z2_f = 0;				#charges of n and 4He
 r_i = 6.0; r_f = 5.0;			# channel radii (fm)
 jt = 0.5; jp = 1.0; jr = 1.5;			#spins of target, projectile, resonance
-Q = 17.589;						#reaction Q-value (MeV)
+Q = 17.589293;						#reaction Q-value (MeV)
 la = 0; lb = 2;					#orbital angular momenta of d and n
 
 #   DEFINITIONS
