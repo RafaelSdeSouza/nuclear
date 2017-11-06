@@ -57,8 +57,8 @@ nuclear_rate3Hedp <- function(ER,gi,gf,T9){
 
   # CALCULATE Nuclear rate
 
-  Nasv <- function(Temp){(3.7318e10/Temp^{3/2})*sqrt(1/mue)*integrate(integrand, lower = 0, upper = Inf,
-         abs.tol=1e-10,subdivisions = 1000,T9 = Temp)$value}
+  Nasv <- function(Temp){(3.7318e10/Temp^{3/2})*sqrt(1/mue)*integrate(integrand, lower = 1e-5, upper = Inf,
+          abs.tol = 0L,T9 = Temp)$value}
 
   out <- Nasv(T9)
   return(Nasv=out)
