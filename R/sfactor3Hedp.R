@@ -12,7 +12,7 @@
 #  http://www.r-project.org/Licenses/
 #
 #' @title  Estimate Astrophysical S-factor
-#' @description Provides a confusion matrix of classification statistics following logistic regression.
+#' @description Provides Astrophysical S-factor
 #' @aliases sfactor3Hedp
 #' @usage sfactor3Hedp(ECM = ECM, ER = ER, gi = gi, gf = gf)
 #' @format \describe{
