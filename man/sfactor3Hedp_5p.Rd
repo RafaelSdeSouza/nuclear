@@ -6,23 +6,25 @@
 \title{Estimate Astrophysical S-factor}
 \format{\describe{
 \item{x}{
-The function has 6  arguments: ECM, ER, gi, gf, r_i, r_f}
+The function has 6  arguments: ECM, ER, gd, gp, rd, rp, ue}
 }}
 \usage{
-sfactor3Hedp_5p(ECM = ECM, ER = ER, gi = gi, gf = gf, r_i = r_i, r_f = r_f)
+sfactor3Hedp_5p(ECM = ECM, ER = ER, gd = gd, gp = gp, rd = rd, rp = rp, ue = ue)
 }
 \arguments{
 \item{ECM}{ECM}
 
 \item{ER}{ER}
 
-\item{gi}{gi}
+\item{gd}{gd}
 
-\item{gf}{gf}
+\item{gp}{gp}
 
-\item{r_i}{r_i}
+\item{rd}{rd}
 
-\item{r_f}{r_f}
+\item{rp}{rp}
+
+\item{ue}{ue}
 }
 \value{
 S-factor

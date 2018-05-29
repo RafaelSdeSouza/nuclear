@@ -5,23 +5,23 @@
 \title{Estimate reaction rates}
 \format{\describe{
 \item{x}{
-The function has four arguments: ER, gi, gf, r_i, r_f, T9}
+The function has four arguments: ECM, gd, gp, rd, rp, T9}
 }}
 \usage{
-nuclear_rate3Hedp_5p(ER = ER, gi = gi, gf = gf, r_i = r_i, r_f = r_f, T9 = T9)
+nuclear_rate3Hedp_5p(ECM = ECM, gd = gd, gp = gp, rd = rd, rp = rp, T9 = T9)
 }
 \arguments{
-\item{ER}{ER}
+\item{gd}{gd}
 
-\item{gi}{gi}
+\item{gp}{gp}
 
-\item{gf}{gf}
+\item{rd}{rd}
 
-\item{r_i}{r_i}
-
-\item{r_f}{r_f}
+\item{rp}{rp}
 
 \item{T9}{T9}
+
+\item{ER}{ECM}
 }
 \value{
 nuclear_rate

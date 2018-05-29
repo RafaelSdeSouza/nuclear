@@ -14,16 +14,16 @@
 #' @title  Estimate reaction rates
 #' @description Calculate numerical reaction rates
 #' @aliases nuclear_rate3Hedp_5p
-#' @usage nuclear_rate3Hedp_5p(ER = ER, gi = gi, gf = gf, r_i = r_i, r_f = r_f, T9 = T9)
+#' @usage nuclear_rate3Hedp_5p(ECM = ECM, gd = gd, gp = gp, rd = rd, rp = rp, T9 = T9)
 #' @format \describe{
 #' \item{x}{
-#' The function has four arguments: ER, gi, gf, r_i, r_f, T9}
+#' The function has four arguments: ECM, gd, gp, rd, rp, T9}
 #' }
-#' @param ER  ER
-#' @param gi  gi
-#' @param gf  gf
-#' @param r_i r_i
-#' @param r_f r_f
+#' @param ER  ECM
+#' @param gd  gd
+#' @param gp  gp
+#' @param rd  rd
+#' @param rp  rp
 #' @param T9  T9
 #' @return nuclear_rate
 #' @import gsl
@@ -42,7 +42,7 @@
 #'
 #'
 
-nuclear_rate3Hedp_5p <- function(ER, gi, gf, r_i, r_f, T9){
+nuclear_rate3Hedp_5p <- function(ECM, gd, gp, rd, rp, T9){
   # Constants
   M0 = 3.01493216; M1 = 2.01355332;		# masses (amu) of t and d
   Z0 = 2; Z1 = 1 ;			# charges of t and d
@@ -55,7 +55,7 @@ nuclear_rate3Hedp_5p <- function(ER, gi, gf, r_i, r_f, T9){
   #     Integrand
   #     ----------------------------------------------------
 
-  integrand <- function(E,T9) {exp(-dpieta(E))*sfactor3Hedp_5p(E,ER,gi,gf,r_i,r_f)*exp(-E/(0.086173324*T9))}
+  integrand <- function(E,T9) {exp(-dpieta(E))*sfactor3Hedp_5p(E,ECM,gd,gp,rd,rp)*exp(-E/(0.086173324*T9))}
 
   # CALCULATE Nuclear rate
 
