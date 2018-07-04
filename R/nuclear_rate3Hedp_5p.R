@@ -19,10 +19,12 @@
 #' \item{x}{
 #' The function has four arguments: ECM, gd, gp, rd, rp, T9}
 #' }
-#' @param ER  ECM
-#' @param gd  gd
-#' @param gp  gp
-#' @param rd  rd
+#' @param e0  E0
+#' @param er  ER
+#' @param gi  gi
+#' @param gf  gf
+#' @param ri ri
+#' @param rf rf
 #' @param rp  rp
 #' @param T9  T9
 #' @return nuclear_rate
@@ -42,7 +44,7 @@
 #'
 #'
 
-nuclear_rate3Hedp_5p <- function(ECM, gd, gp, rd, rp, T9){
+nuclear_rate3Hedp_5p <- function(e0,er,gi,gf,ri,rf,T9){
   # Constants
   M0 = 3.01493216; M1 = 2.01355332;		# masses (amu) of t and d
   Z0 = 2; Z1 = 1 ;			# charges of t and d
@@ -55,7 +57,7 @@ nuclear_rate3Hedp_5p <- function(ECM, gd, gp, rd, rp, T9){
   #     Integrand
   #     ----------------------------------------------------
 
-  integrand <- function(E,T9) {exp(-dpieta(E))*sfactor3Hedp_5p(E,ECM,gd,gp,rd,rp)*exp(-E/(0.086173324*T9))}
+  integrand <- function(E,T9) {exp(-dpieta(E))*sfactor3Hedp_5p(E,e0,er,gi,gf,ri,rf)*exp(-E/(0.086173324*T9))}
 
   # CALCULATE Nuclear rate
 
