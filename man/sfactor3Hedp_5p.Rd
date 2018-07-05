@@ -9,20 +9,22 @@
 The function has 6  arguments: ECM, ER, gd, gp, rd, rp, ue}
 }}
 \usage{
-sfactor3Hedp_5p(ECM = ECM, ER = ER, gd = gd, gp = gp, rd = rd, rp = rp, ue = ue)
+sfactor3Hedp_5p(ecm = ecm, e0 = e0, er = er, gi = gi, gf = gf, ri = ri, rf = rf, ue = ue)
 }
 \arguments{
-\item{ECM}{ECM}
+\item{ecm}{ECM}
 
-\item{ER}{ER}
+\item{e0}{E0}
 
-\item{gd}{gd}
+\item{er}{ER}
 
-\item{gp}{gp}
+\item{gi}{gi}
 
-\item{rd}{rd}
+\item{gf}{gf}
 
-\item{rp}{rp}
+\item{ri}{ri}
+
+\item{rf}{rf}
 
 \item{ue}{ue}
 }
