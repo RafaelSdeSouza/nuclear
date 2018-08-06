@@ -11,17 +11,21 @@ The function has four arguments: ECM, gd, gp, rd, rp, T9}
 nuclear_rate3Hedp_5p(ECM = ECM, gd = gd, gp = gp, rd = rd, rp = rp, T9 = T9)
 }
 \arguments{
-\item{gd}{gd}
+\item{e0}{E0}
 
-\item{gp}{gp}
+\item{er}{ER}
 
-\item{rd}{rd}
+\item{gi}{gi}
 
-\item{rp}{rp}
+\item{gf}{gf}
+
+\item{ri}{ri}
+
+\item{rf}{rf}
 
 \item{T9}{T9}
 
-\item{ER}{ECM}
+\item{rp}{rp}
 }
 \value{
 nuclear_rate
