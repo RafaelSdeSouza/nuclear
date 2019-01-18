@@ -32,7 +32,8 @@
 #'
 #'
 table_reaction_He3dp <- function(mat, vars=vars, N = 1000,T9){
-  mcdat_I <- as.data.frame(do.call(rbind, as.mcmc(mat)[,vars]))
+#  mcdat_I <- as.data.frame(do.call(rbind, as.mcmc(mat)[,vars]))
+  mcdat_I <- mat[,vars]
   index <- sample(1:nrow(mcdat_I ),size=N,replace=FALSE)
   mcdat_I  <- mcdat_I [index,]
 
