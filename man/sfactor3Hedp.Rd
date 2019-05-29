@@ -5,25 +5,31 @@
 \title{Estimate Astrophysical S-factor}
 \format{\describe{
 \item{x}{
-The function has four arguments: ECM, ER, gi, gf}
+The function has 6  arguments: ECM, E0, gi, gf, ri, rf, ue}
 }}
 \usage{
-sfactor3Hedp(ECM = ECM, ER = ER, gi = gi, gf = gf)
+sfactor3Hedp(ecm = ecm, e0 = e0, gi = gi, gf = gf, ri = ri, rf = rf, ue = ue)
 }
 \arguments{
-\item{ECM}{ECM}
+\item{ecm}{ECM}
 
-\item{ER}{ER}
+\item{e0}{E0}
 
 \item{gi}{gi}
 
 \item{gf}{gf}
+
+\item{ri}{ri}
+
+\item{rf}{rf}
+
+\item{ue}{ue}
 }
 \value{
 S-factor
 }
 \description{
-Provides Astrophysical S-factor
+Provides a confusion matrix of classification statistics following logistic regression.
 }
 \examples{
 library(nuclear)

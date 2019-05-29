@@ -12,17 +12,20 @@
 #  http://www.r-project.org/Licenses/
 #
 #' @title  Estimate Astrophysical S-factor
-#' @description Provides Astrophysical S-factor
+#' @description Provides a confusion matrix of classification statistics following logistic regression.
 #' @aliases sfactor3Hedp
-#' @usage sfactor3Hedp(ECM = ECM, ER = ER, gi = gi, gf = gf)
+#' @usage sfactor3Hedp(ecm = ecm, e0 = e0, gi = gi, gf = gf, ri = ri, rf = rf, ue = ue)
 #' @format \describe{
 #' \item{x}{
-#' The function has four arguments: ECM, ER, gi, gf}
+#' The function has 6  arguments: ECM, E0, gi, gf, ri, rf, ue}
 #' }
-#' @param ECM ECM
-#' @param ER  ER
+#' @param ecm ECM
+#' @param e0  E0
 #' @param gi  gi
 #' @param gf  gf
+#' @param ri ri
+#' @param rf rf
+#' @param ue ue
 #' @return S-factor
 #' @import gsl
 #' @examples
@@ -42,13 +45,14 @@
 
 
 
-sfactor3Hedp <- function(ECM,ER,gi,gf){
+sfactor3Hedp <- function(ecm,e0,gi,gf, ri = 6, rf =5,ue=0){
+  er = e0
   # Constants
   m1_i = 3.01493; m2_i = 2.01355;		# masses (amu) of t and d
   m1_f = 4.00151; m2_f = 1.007277;	# masses (amu) of n and 4He
   z1_i = 2; z2_i = 1;			# charges of t and d
   z1_f = 2; z2_f = 1;				#charges of n and 4He
-  r_i = 6.0; r_f = 5.0;			# channel radii (fm)
+#  rd = 6.0; rp = 5.0;			# channel radii (fm)
   la = 0; lb = 2;					#orbital angular momenta of d and n
   Q = 18.353053;						#reaction Q-value (MeV)
   jt = 0.5; jp=1.0; jr=1.5;			#spins of target, projectile, resonance
@@ -60,53 +64,47 @@ sfactor3Hedp <- function(ECM,ER,gi,gf){
   pek <- 6.56618216e-1/mue_i;
   omega <- (2*jr+1)/((2*jt+1)*(2*jp+1));
 
-  #     ----------------------------------------------------
-  #     PENETRABILITY AND SHIFT FUNCTION AT ER
-  #     ----------------------------------------------------
-
-
-  eta_a=.15748927*z2_i*z1_i*sqrt(mue_i)
-  rho_a=.218735097*r_i*sqrt(mue_i)
-  reta_i=eta_a/(sqrt(ER))
-  rrho_i=rho_a*(sqrt(ER))
-
-  P1 <- coulomb_wave_FG(reta_i, rrho_i, la, k=0)
-  pr_i <- rrho_i/(P1$val_F^2 + P1$val_G^2)
-  sr_i <- rrho_i*(P1$val_F*P1$val_Fp + P1$val_G*P1$val_Gp)/(P1$val_F^2 + P1$val_G^2)
-  ga <- 2*gi*pr_i
-
-
-  eta_b=.15748927*z2_f*z1_f*sqrt(mue_f)
-  rho_b=.218735097*r_f*sqrt(mue_f)
-  reta_f=eta_b/(sqrt(ER+Q))
-  rrho_f=rho_b*(sqrt(ER+Q))
-
-  P2 <- coulomb_wave_FG(reta_f, rrho_f, lb, k=0)
-  pr_f <- rrho_f/(P2$val_F^2 + P2$val_G^2)
-  sr_f <- rrho_f*(P2$val_F*P2$val_Fp + P2$val_G*P2$val_Gp)/(P2$val_F^2 + P2$val_G^2)
-  gb <- 2*gf*pr_f
-
-  # CALCULATE S-FACTOR
-
-  etpe_i=exp(0.989534267*z1_i*z2_i*sqrt(mue_i/ECM))
-  eta_i=eta_a/(sqrt(ECM))
-  rho_i=rho_a*(sqrt(ECM))
+  ### CALCULATE S-FACTOR
+  ## incoming channel
+  etpe_i=exp(0.98951013*z1_i*z2_i*sqrt(mue_i/ecm))
+  eta_a=0.1574854*z2_i*z1_i*sqrt(mue_i)
+  rho_a=0.218735*ri*sqrt(mue_i)
+  eta_i=eta_a/(sqrt(ecm))
+  rho_i=rho_a*(sqrt(ecm))
   P3 <- coulomb_wave_FG(eta_i, rho_i, la, k=0)
+  # penetration and shift factor
   p_i <- rho_i/(P3$val_F^2 + P3$val_G^2)
   s_i <- rho_i*(P3$val_F*P3$val_Fp + P3$val_G*P3$val_Gp)/(P3$val_F^2 + P3$val_G^2)
-  prat_i=p_i/pr_i
+  # shift factor at energy Er
+  xeta_i=eta_a/(sqrt(er))
+  xrho_i=rho_a*(sqrt(er))
+  PX1 <- coulomb_wave_FG(xeta_i, xrho_i, la, k=0)
+  b_i <- xrho_i*(PX1$val_F*PX1$val_Fp + PX1$val_G*PX1$val_Gp)/(PX1$val_F^2 + PX1$val_G^2)
+  # partial width
+  Ga <- 2*gi*p_i
 
-  eta_f=eta_b/(sqrt(ECM+Q))
-  rho_f=rho_b*(sqrt(ECM+Q))
+  ## outgoing channel
+  eta_b=0.1574854*z2_f*z1_f*sqrt(mue_f)
+  rho_b=0.218735*rf*sqrt(mue_f)
+  eta_f=eta_b/(sqrt(ecm+Q))
+  rho_f=rho_b*(sqrt(ecm+Q))
   P4 <- coulomb_wave_FG(eta_f, rho_f, lb, k=0)
+  # penetration and shift factor
   p_f <- rho_f/(P4$val_F^2 + P4$val_G^2)
   s_f <- rho_f*(P4$val_F*P4$val_Fp + P4$val_G*P4$val_Gp)/(P4$val_F^2 + P4$val_G^2)
-  prat_f=p_f/pr_f
+  # shift factor at energy Er+Q
+  xeta_f=eta_b/(sqrt(er+Q))
+  xrho_f=rho_b*(sqrt(er+Q))
+  PX2 <- coulomb_wave_FG(xeta_f, xrho_f, lb, k=0)
+  b_f <- xrho_f*(PX2$val_F*PX2$val_Fp + PX2$val_G*PX2$val_Gp)/(PX2$val_F^2 + PX2$val_G^2)
+  # partial width
+  Gb <- 2*gf*p_f
 
-  tapp <- (s_i-sr_i)*gi+(s_f-sr_f)*gf
+  tapp <- (s_i-b_i)*gi+(s_f-b_f)*gf
 
-  s1=pek*etpe_i*omega*prat_i*prat_f*ga*gb
-  s2=((ER-ECM-tapp)^2)+0.25*((ga*prat_i+gb*prat_f)^2)
-  SF <- s1/s2
+  s1=pek*etpe_i*omega*Ga*Gb
+  s2=((e0-ecm-tapp)^2)+0.25*((Ga+Gb)^2)
+  SF <- exp( 0.5*0.98951013e0*z1_i*z2_i*sqrt(mue_i)*(1e-6*ue)*ecm^(-1.5) )*s1/s2
+
   return(SF = SF)
 }
