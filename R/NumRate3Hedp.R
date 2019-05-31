@@ -39,11 +39,11 @@
 #'
 #'
 
-NumRate3Hedp  <- function(e0,gi,gf,ri,rf,T9){
+NumRate3Hedp  <-  Vectorize(function(e0,gi,gf,ri,rf,T9){
   er = e0
   # Constants
-  M0 = 3.01493216; M1 = 2.01355332;		# masses (amu) of t and d
-  Z0 = 2; Z1 = 1 ;			# charges of t and d
+  M0 = 3.01493216; M1 = 2.01355332;		# masses (amu) of projectile and target
+  Z0 = 2; Z1 = 1 ;			# charge projectile and target
 
   #   DEFINITIONS
   mue <- (M0*M1)/(M0 + M1)
@@ -63,3 +63,4 @@ NumRate3Hedp  <- function(e0,gi,gf,ri,rf,T9){
   out <- Nasv(T9)
   return(Nasv=out)
 }
+)
