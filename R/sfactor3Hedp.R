@@ -17,7 +17,7 @@
 #' @usage sfactor3Hedp(ecm = ecm, e0 = e0, gi = gi, gf = gf, ri = ri, rf = rf, ue = ue)
 #' @format \describe{
 #' \item{x}{
-#' The function has 6  arguments: ECM, E0, gi, gf, ri, rf, ue}
+#' The function has 7  arguments: ecm, e0, gi, gf, ri, rf, ue}
 #' }
 #' @param ecm ECM
 #' @param e0  E0
@@ -45,7 +45,7 @@
 
 
 
-sfactor3Hedp <- function(ecm,e0,gi,gf, ri = 6, rf =5,ue=0){
+sfactor3Hedp <- function(ecm,e0,gi,gf, ri = 6, rf =5, ue = 0){
   er = e0
   # Constants
   m1_i = 3.01493; m2_i = 2.01355;		# masses (amu) of t and d
@@ -55,55 +55,55 @@ sfactor3Hedp <- function(ecm,e0,gi,gf, ri = 6, rf =5,ue=0){
 #  rd = 6.0; rp = 5.0;			# channel radii (fm)
   la = 0; lb = 2;					#orbital angular momenta of d and n
   Q = 18.353053;						#reaction Q-value (MeV)
-  jt = 0.5; jp=1.0; jr=1.5;			#spins of target, projectile, resonance
+  jt = 0.5; jp = 1.0; jr = 1.5;			#spins of target, projectile, resonance
 
   #   DEFINITIONS
 
-  mue_i <- (m1_i*m2_i)/(m1_i+m2_i);
-  mue_f <- (m1_f*m2_f)/(m1_f+m2_f);
+  mue_i <- (m1_i*m2_i)/(m1_i + m2_i);
+  mue_f <- (m1_f*m2_f)/(m1_f + m2_f);
   pek <- 6.56618216e-1/mue_i;
-  omega <- (2*jr+1)/((2*jt+1)*(2*jp+1));
+  omega <- (2*jr + 1)/((2*jt + 1)*(2*jp + 1));
 
   ### CALCULATE S-FACTOR
   ## incoming channel
-  etpe_i=exp(0.98951013*z1_i*z2_i*sqrt(mue_i/ecm))
-  eta_a=0.1574854*z2_i*z1_i*sqrt(mue_i)
-  rho_a=0.218735*ri*sqrt(mue_i)
-  eta_i=eta_a/(sqrt(ecm))
-  rho_i=rho_a*(sqrt(ecm))
-  P3 <- coulomb_wave_FG(eta_i, rho_i, la, k=0)
+  etpe_i = exp(0.98951013*z1_i*z2_i*sqrt(mue_i/ecm))
+  eta_a = 0.1574854*z2_i*z1_i*sqrt(mue_i)
+  rho_a = 0.218735*ri*sqrt(mue_i)
+  eta_i = eta_a/(sqrt(ecm))
+  rho_i = rho_a*(sqrt(ecm))
+  P3 <- coulomb_wave_FG(eta_i, rho_i, la, k = 0)
   # penetration and shift factor
   p_i <- rho_i/(P3$val_F^2 + P3$val_G^2)
   s_i <- rho_i*(P3$val_F*P3$val_Fp + P3$val_G*P3$val_Gp)/(P3$val_F^2 + P3$val_G^2)
   # shift factor at energy Er
-  xeta_i=eta_a/(sqrt(er))
-  xrho_i=rho_a*(sqrt(er))
-  PX1 <- coulomb_wave_FG(xeta_i, xrho_i, la, k=0)
+  xeta_i = eta_a/(sqrt(er))
+  xrho_i = rho_a*(sqrt(er))
+  PX1 <- coulomb_wave_FG(xeta_i, xrho_i, la, k = 0)
   b_i <- xrho_i*(PX1$val_F*PX1$val_Fp + PX1$val_G*PX1$val_Gp)/(PX1$val_F^2 + PX1$val_G^2)
   # partial width
   Ga <- 2*gi*p_i
 
   ## outgoing channel
-  eta_b=0.1574854*z2_f*z1_f*sqrt(mue_f)
-  rho_b=0.218735*rf*sqrt(mue_f)
-  eta_f=eta_b/(sqrt(ecm+Q))
-  rho_f=rho_b*(sqrt(ecm+Q))
-  P4 <- coulomb_wave_FG(eta_f, rho_f, lb, k=0)
+  eta_b = 0.1574854*z2_f*z1_f*sqrt(mue_f)
+  rho_b = 0.218735*rf*sqrt(mue_f)
+  eta_f = eta_b/(sqrt(ecm + Q))
+  rho_f = rho_b*(sqrt(ecm + Q))
+  P4 <- coulomb_wave_FG(eta_f, rho_f, lb, k = 0)
   # penetration and shift factor
   p_f <- rho_f/(P4$val_F^2 + P4$val_G^2)
   s_f <- rho_f*(P4$val_F*P4$val_Fp + P4$val_G*P4$val_Gp)/(P4$val_F^2 + P4$val_G^2)
   # shift factor at energy Er+Q
-  xeta_f=eta_b/(sqrt(er+Q))
-  xrho_f=rho_b*(sqrt(er+Q))
-  PX2 <- coulomb_wave_FG(xeta_f, xrho_f, lb, k=0)
+  xeta_f = eta_b/(sqrt(er + Q))
+  xrho_f = rho_b*(sqrt(er + Q))
+  PX2 <- coulomb_wave_FG(xeta_f, xrho_f, lb, k = 0)
   b_f <- xrho_f*(PX2$val_F*PX2$val_Fp + PX2$val_G*PX2$val_Gp)/(PX2$val_F^2 + PX2$val_G^2)
   # partial width
   Gb <- 2*gf*p_f
 
-  tapp <- (s_i-b_i)*gi+(s_f-b_f)*gf
+  tapp <- (s_i - b_i)*gi + (s_f - b_f)*gf
 
-  s1=pek*etpe_i*omega*Ga*Gb
-  s2=((e0-ecm-tapp)^2)+0.25*((Ga+Gb)^2)
+  s1 = pek*etpe_i*omega*Ga*Gb
+  s2 = ((e0 - ecm - tapp)^2 ) + 0.25*((Ga + Gb)^2)
   SF <- exp( 0.5*0.98951013e0*z1_i*z2_i*sqrt(mue_i)*(1e-6*ue)*ecm^(-1.5) )*s1/s2
 
   return(SF = SF)

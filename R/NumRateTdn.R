@@ -13,37 +13,37 @@
 #
 #' @title  Estimate reaction rates
 #' @description Calculate numerical reaction rates
-#' @aliases nuclear_rate3Hedp
-#' @usage nuclear_rate3Hedp(ER = ER, gi = gi, gf = gf, T9 = T9)
+#' @aliases NumRate3Hedp
+#' @usage NumRateTdn(e0 = e0, gi = gi, gf = gf, ri = ri, rf = rf, T9 = T9)
 #' @format \describe{
 #' \item{x}{
-#' The function has four arguments: ER, gi, gf, T9}
+#' The function has six arguments: e0, gi, gf, ri, rf, T9}
 #' }
-#' @param ER  ER
+#' @param e0  e0
 #' @param gi  gi
 #' @param gf  gf
+#' @param ri  ri
+#' @param rf  rf
 #' @param T9  T9
 #' @return nuclear_rate
 #' @import gsl
 #' @examples
 #' library(nuclear)
 #'
-#' N <- 300
-#' obsx1 <- exp(seq(log(1e-3), log(1),length.out=N))
-#' plot(obsx1,sfactor3Hedp(obsx1,0.35,1.0085,0.025425),
-#' col="red",cex=1.25,type="l",ylab="S-factor",xlab="E",log="x")
+#' NumRateTdn(0.35,1.0085,0.025425,5,5,10)
 #'
 #' @author Rafael de Souza, UNC,  and Christian Illiadis, UNC
 #'
-#' @keywords Nuclear_rate
+#' @keywords Nuclear rate
 #' @export
 #'
 #'
 
-nuclear_rate3Hedp <- function(ER,gi,gf,T9){
+NumRateTdn  <- function(e0,gi,gf,ri,rf,T9){
+  er = e0
   # Constants
   M0 = 3.01493216; M1 = 2.01355332;		# masses (amu) of t and d
-  Z0 = 2; Z1 = 1 ;			# charges of t and d
+  Z0 = 1; Z1 = 1 ;			# charges of t and d
 
   #   DEFINITIONS
   mue <- (M0*M1)/(M0 + M1)
@@ -53,8 +53,7 @@ nuclear_rate3Hedp <- function(ER,gi,gf,T9){
   #     Integrand
   #     ----------------------------------------------------
 
-  integrand <- function(E,T9) {exp(-dpieta(E))*sfactor3Hedp(E,ER,gi,gf)*exp(-E/(0.086173324*T9))}
-
+   integrand <-  function(E,T9) {exp(-dpieta(E))*sfactorTdn(E,e0,gi,gf,ri,rf)*exp(-E/(0.086173324*T9))}
   # CALCULATE Nuclear rate
 
   Nasv <- function(Temp){(3.7318e10/Temp^{3/2})*sqrt(1/mue)*integrate(integrand, lower = 1e-5, upper = Inf,

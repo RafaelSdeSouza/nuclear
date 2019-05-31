@@ -5,7 +5,7 @@
 \title{Estimate Astrophysical S-factor}
 \format{\describe{
 \item{x}{
-The function has 6  arguments: ECM, E0, gi, gf, ri, rf, ue}
+The function has 7  arguments: ecm, e0, gi, gf, ri, rf, ue}
 }}
 \usage{
 sfactor3Hedp(ecm = ecm, e0 = e0, gi = gi, gf = gf, ri = ri, rf = rf, ue = ue)

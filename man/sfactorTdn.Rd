@@ -5,19 +5,21 @@
 \title{Estimate Astrophysical S-factor}
 \format{\describe{
 \item{x}{
-The function has four arguments: ECM, ER, gi, gf}
+The function has five arguments:  ecm, e0, gi, gf, ri, rf}
 }}
 \usage{
-sfactorTdn(ECM = ECM, ER = ER, gi = gi, gf = gf)
+sfactorTdn(e0 = e0, gi = gi, gf = gf, ri = ri, rf = rf)
 }
 \arguments{
-\item{ECM}{ECM}
-
-\item{ER}{ER}
+\item{e0}{e0}
 
 \item{gi}{gi}
 
 \item{gf}{gf}
+
+\item{r_i}{r_i}
+
+\item{r_f}{r_f}
 }
 \value{
 S-factor
@@ -30,7 +32,7 @@ library(nuclear)
 
 N <- 300
 obsx1 <- exp(seq(log(1e-3), log(1),length.out=N))
-plot(obsx1,sfactorTdn(obsx1,0.0912,2.93,0.0794),ylim=c(0,32.5),
+plot(obsx1,sfactorTdn(obsx1,0.0912,2.93,0.0794,5,5),ylim=c(0,32.5),
      xlim=c(1e-3,1),col="red",cex=1.25,type="l",ylab="S-factor",xlab="E",log="x")
 
 }
