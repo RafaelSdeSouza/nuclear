@@ -13,8 +13,8 @@
 #
 #' @title  Estimate Astrophysical S-factor
 #' @description Provides a confusion matrix of classification statistics following logistic regression.
-#' @aliases sfactor3Hedp
-#' @usage sfactor3Hedp(ecm = ecm, e0 = e0, gi = gi, gf = gf, ri = ri, rf = rf, ue = ue)
+#' @aliases sfactorHe3dp
+#' @usage sfactorHe3dp(ecm = ecm, e0 = e0, gi = gi, gf = gf, ri = ri, rf = rf, ue = ue)
 #' @format \describe{
 #' \item{x}{
 #' The function has 7  arguments: ecm, e0, gi, gf, ri, rf, ue}
@@ -42,7 +42,7 @@
 #' @export
 #'
 #'
-sfactor3Hedp <- function(ecm,e0,gi,gf, ri = 6, rf =5, ue = 0){
+sfactorHe3dp <- function(ecm,e0,gi,gf, ri = 6, rf =5, ue = 0){
   er = e0
   # Constants
   m1_i = 3.01493; m2_i = 2.01355;		# masses (amu) of t and d

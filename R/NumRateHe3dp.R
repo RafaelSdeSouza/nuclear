@@ -13,8 +13,8 @@
 #
 #' @title  Estimate reaction rates
 #' @description Calculate numerical reaction rates
-#' @aliases NumRate3Hedp
-#' @usage NumRate3Hedp(e0 = e0, gi = gi, gf = gf, ri = ri, rf = rf, T9 = T9)
+#' @aliases NumRateHe3dp
+#' @usage NumRateHe3dp(e0 = e0, gi = gi, gf = gf, ri = ri, rf = rf, T9 = T9)
 #' @format \describe{
 #' \item{x}{
 #' The function has six arguments: e0, gi, gf, ri, rf, T9}
@@ -30,7 +30,7 @@
 #' @examples
 #' library(nuclear)
 #'
-#'  NumRate3Hedp(0.35,1.0085,0.025425,5,5,10)
+#'  NumRateHe3dp(0.35,1.0085,0.025425,5,5,10)
 #'
 #' @author Rafael de Souza, UNC,  and Christian Illiadis, UNC
 #'
@@ -39,7 +39,7 @@
 #'
 #'
 
-NumRate3Hedp  <-  Vectorize(function(e0,gi,gf,ri,rf,T9){
+NumRateHe3dp  <-  Vectorize(function(e0,gi,gf,ri,rf,T9){
   er = e0
   # Constants
   M0 = 3.01493216; M1 = 2.01355332;		# masses (amu) of projectile and target

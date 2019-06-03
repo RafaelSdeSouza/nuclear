@@ -1,4 +1,4 @@
-# nuclear R package
+# R nuclear package
 
 ## Installation
 devtools::install_github("rafaelsdesouza/nuclear")
