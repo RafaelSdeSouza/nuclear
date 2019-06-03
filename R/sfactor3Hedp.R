@@ -42,9 +42,6 @@
 #' @export
 #'
 #'
-
-
-
 sfactor3Hedp <- function(ecm,e0,gi,gf, ri = 6, rf =5, ue = 0){
   er = e0
   # Constants

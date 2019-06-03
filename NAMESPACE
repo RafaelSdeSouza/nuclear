@@ -3,6 +3,7 @@
 export(NumRate3Hedp)
 export(NumRate3HedpLoop)
 export(NumRateTdn)
+export(jagsresults)
 export(sfactor3Hedp)
 export(sfactorDpg)
 export(sfactorTdn)

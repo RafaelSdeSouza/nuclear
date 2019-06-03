@@ -1,7 +1,7 @@
 Package: nuclear
 Type: Package
 Title: Functions to estimate S-factor for nuclear reactions
-Version: 0.2.0
+Version: 0.2
 Author: Rafael S. de Souza <drsouza@email.unc.edu>
 Maintainer: Rafael S. de Souza <drsouza@email.unc.edu>
 Description: Functions to estimate S-factor
