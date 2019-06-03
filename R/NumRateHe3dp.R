@@ -53,7 +53,7 @@ NumRateHe3dp  <-  Vectorize(function(e0,gi,gf,ri,rf,T9){
   #     Integrand
   #     ----------------------------------------------------
 
-  integrand <- function(E,T9) {exp(-dpieta(E))*sfactor3Hedp(E,e0,gi,gf,ri,rf)*exp(-E/(0.086173324*T9))}
+  integrand <- function(E,T9) {exp(-dpieta(E))*sfactorHe3dp(E,e0,gi,gf,ri,rf)*exp(-E/(0.086173324*T9))}
 
   # CALCULATE Nuclear rate
 

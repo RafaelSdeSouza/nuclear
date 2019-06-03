@@ -13,8 +13,8 @@
 #
 #' @title  Estimate Astrophysical S-factor
 #' @description Provides a confusion matrix of classification statistics following logistic regression.
-#' @aliases sfactorDpg
-#' @usage sfactorDpg(ecm = ecm)
+#' @aliases sfactorDdn
+#' @usage sfactorDdn(ecm = ecm)
 #' @format \describe{
 #' \item{x}{
 #' The function has one arguments:  ecm}
@@ -26,7 +26,7 @@
 #'
 #' N <- 300
 #' obsx1 <- exp(seq(log(1e-3), log(1),length.out=N))
-#' plot(obsx1,sfactorDpg(obsx1),
+#' plot(obsx1,sfactorDdn(obsx1),
 #' col="red",cex=1.25,type="l",ylab="S-factor",xlab="E",log="x")
 #'
 #' @author Rafael de Souza, UNC,  and Christian Illiadis, UNC
@@ -35,10 +35,10 @@
 #' @export
 #'
 #'
-sfactorDpg <- function(ecm){
-  data(dpg)
-  th <- approxfun(dpg[,1], dpg[,2])
-  SF <- th(ecm)*1e-6
+sfactorDdn <- function(ecm){
+  data(ddn)
+  th <- approxfun(ddn[,1], ddn[,2])
+  SF <- th(ecm)*1e-3
   return(SF = SF)
 }
 

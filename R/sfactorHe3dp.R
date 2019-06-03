@@ -33,7 +33,7 @@
 #'
 #' N <- 300
 #' obsx1 <- exp(seq(log(1e-3), log(1),length.out=N))
-#' plot(obsx1,sfactor3Hedp(obsx1,0.35,1.0085,0.025425),
+#' plot(obsx1,sfactorHe3dp(obsx1,0.35,1.0085,0.025425),
 #' col="red",cex=1.25,type="l",ylab="S-factor",xlab="E",log="x")
 #'
 #' @author Rafael de Souza, UNC,  and Christian Illiadis, UNC
