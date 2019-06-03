@@ -14,15 +14,15 @@
 #' @title  Estimate Astrophysical S-factor
 #' @description Provides a confusion matrix of classification statistics following logistic regression.
 #' @aliases sfactorHe3He3
-#' @usage sfactorHe3He3(ecm = ecm, alpha = alpha, beta = beta, i.screen = i.screen)
+#' @usage sfactorHe3He3(ecm = ecm, S0 = S0, S1 = S1,S2 = S2, i.screen = i.screen)
 #' @format \describe{
 #' \item{x}{
-#' The function has 5  arguments: ecm,alpha, beta, gamma,i.screen}
+#' The function has 5  arguments: ecm,S0, S1, S2,i.screen}
 #' }
 #' @param ecm ecm
-#' @param alpha  alpha
-#' @param beta  beta
-#' @param gamma  gamma
+#' @param S0  S0
+#' @param S1  S1
+#' @param S2  S2
 #' @param i.screen i.screen
 #' @return S-factor
 #' @examples
@@ -39,9 +39,9 @@
 #' @export
 #'
 #'
-sfactorHe3He3 <- function(ecm,alpha, beta, gamma,i.screen){
+sfactorHe3He3 <- function(ecm,S0, S1, S2,i.screen){
 SF <- (exp(2.429819509*i.screen*(ecm^(-1.5)))) *
-    (alpha + beta*ecm + gamma*ecm^2)
+    (S0 + S1*ecm +  0.5*S2*ecm^2)
 
   return(SF = SF)
 }
