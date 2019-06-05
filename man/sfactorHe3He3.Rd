@@ -5,19 +5,19 @@
 \title{Estimate Astrophysical S-factor}
 \format{\describe{
 \item{x}{
-The function has 5  arguments: ecm,alpha, beta, gamma,i.screen}
+The function has 5  arguments: ecm,S0, S1, S2,i.screen}
 }}
 \usage{
-sfactorHe3He3(ecm = ecm, alpha = alpha, beta = beta, i.screen = i.screen)
+sfactorHe3He3(ecm = ecm, S0 = S0, S1 = S1,S2 = S2, i.screen = i.screen)
 }
 \arguments{
 \item{ecm}{ecm}
 
-\item{alpha}{alpha}
+\item{S0}{S0}
 
-\item{beta}{beta}
+\item{S1}{S1}
 
-\item{gamma}{gamma}
+\item{S2}{S2}
 
 \item{i.screen}{i.screen}
 }
@@ -31,7 +31,7 @@ Provides a confusion matrix of classification statistics following logistic regr
 library(nuclear)
 
 N <- 300
-obsx1 <- exp(seq(log(1e-3), log(1),length.out=N))
+obsx1 <- exp(seq(log(1e-2), log(1),length.out=N))
 plot(obsx1,sfactorHe3He3(obsx1,5.14,-2.69,2.14,325*1e-6),
 col="red",cex=1.25,type="l",ylab="S-factor",xlab="E",log="x")
 
