@@ -2,8 +2,12 @@
 
 The Nuclear R package provides a set of functions to simulate and estimate non-resonant astrophysical S-factors and thermonuclear reaction rates, based on measured nuclear cross sections. The following reactions are currently included: d(p,&gamma;)<sup>3</sup>He, d(d,n)<sup>3</sup>He, d(d,p)<sup>3</sup>H, <sup>3</sup>H(d,n)<sup>4</sup>He, <sup>3</sup>He(<sup>3</sup>He,2p)<sup>4</sup>He, <sup>3</sup>He(&alpha;,&gamma;)<sup>7</sup>Be, <sup>3</sup>He(d,p)<sup>4</sup>He, <span style="color:lightgray"><sup>7</sup>Be(n,p)<sup>7</sup>Li</span>.
 
-### d(p,&gamma;)<sup>3</sup>He
+#### d(p,&gamma;)<sup>3</sup>He
 
+- [Theoretical S-factor](https://github.com/RafaelSdeSouza/nuclear/blob/master/R/sfactorDpg.R)  
+- [Reaction-Rate](https://github.com/RafaelSdeSouza/nuclear/blob/master/R/NumRateDpg.R) 
+- [Data](https://github.com/RafaelSdeSouza/nuclear/blob/master/data/dpgdata.RData)   
+ 
 Functions: S-factor, Reaction-Rate
 Dataset:
 Reference: 
