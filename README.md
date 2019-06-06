@@ -6,14 +6,16 @@ The Nuclear R package provides a set of functions to simulate and estimate non-r
 
 - [Theoretical S-factor](https://github.com/RafaelSdeSouza/nuclear/blob/master/R/sfactorDpg.R)  
 - [Reaction-Rate](https://github.com/RafaelSdeSouza/nuclear/blob/master/R/NumRateDpg.R) 
-- [Data](https://github.com/RafaelSdeSouza/nuclear/blob/master/data/dpgdata.RData)   
+- [Simulated data](https://github.com/RafaelSdeSouza/nuclear/blob/master/data/dpg.RData)
+- [Measured data](https://github.com/RafaelSdeSouza/nuclear/blob/master/data/dpgdata.RData)   
  
 
 ### d(d,n)<sup>3</sup>He
 
-- [Theoretical S-factor](https://github.com/RafaelSdeSouza/nuclear/blob/master/R/sfactorDpg.R)  
-- [Reaction-Rate](https://github.com/RafaelSdeSouza/nuclear/blob/master/R/NumRateDpg.R) 
-- [Data](https://github.com/RafaelSdeSouza/nuclear/blob/master/data/dpgdata.RData)  
+- [Theoretical S-factor](https://github.com/RafaelSdeSouza/nuclear/blob/master/R/sfactorDdn.R)  
+- [Reaction-Rate](https://github.com/RafaelSdeSouza/nuclear/blob/master/R/sfactorDdn.R) 
+- [Simulated data](https://github.com/RafaelSdeSouza/nuclear/blob/master/data/ddn.RData)
+- [Measured data]()  
 
 ### Installation
 devtools::install_github("rafaelsdesouza/nuclear")
