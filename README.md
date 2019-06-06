@@ -8,15 +8,12 @@ The Nuclear R package provides a set of functions to simulate and estimate non-r
 - [Reaction-Rate](https://github.com/RafaelSdeSouza/nuclear/blob/master/R/NumRateDpg.R) 
 - [Data](https://github.com/RafaelSdeSouza/nuclear/blob/master/data/dpgdata.RData)   
  
-Functions: S-factor, Reaction-Rate
-Dataset:
-Reference: 
 
 ### d(d,n)<sup>3</sup>He
 
-Functions: S-factor, Reaction-Rate
-Dataset:
-Reference:
+- [Theoretical S-factor](https://github.com/RafaelSdeSouza/nuclear/blob/master/R/sfactorDpg.R)  
+- [Reaction-Rate](https://github.com/RafaelSdeSouza/nuclear/blob/master/R/NumRateDpg.R) 
+- [Data](https://github.com/RafaelSdeSouza/nuclear/blob/master/data/dpgdata.RData)  
 
 ### Installation
 devtools::install_github("rafaelsdesouza/nuclear")
