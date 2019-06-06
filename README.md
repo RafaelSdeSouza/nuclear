@@ -23,4 +23,8 @@ devtools::install_github("rafaelsdesouza/nuclear")
 
 
 ### References
+
+[de Souza, Rafael S.; Iliadis, Christian; Coc, Alain](https://iopscience.iop.org/article/10.3847/1538-4357/aafda9/meta), *Astrophysical S-factors, Thermonuclear Rates, and Electron Screening Potential for the <sup>3</sup>He(d,p)<sup>4</sup>He Big Bang Reaction via a Hierarchical Bayesian Model*, Astrophys. J. 872, 1 (2019).
+
 [C. Iliadis, K.S. Anderson, A. Coc, F.X. Timmes, and S. Starrfield](http://iopscience.iop.org/article/10.3847/0004-637X/831/1/107/meta), *Bayesian Estimation of Thermonuclear Reaction Rates*, Astrophys. J. 831, 107 (2016).
+
