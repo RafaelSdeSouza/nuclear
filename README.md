@@ -10,14 +10,14 @@ The Nuclear R package provides a set of functions to simulate and estimate non-r
 - [Measured data](https://github.com/RafaelSdeSouza/nuclear/blob/master/data/dpgdata.RData)   
  
 
-### d(d,n)<sup>3</sup>He
+#### d(d,n)<sup>3</sup>He
 
 - [Theoretical S-factor](https://github.com/RafaelSdeSouza/nuclear/blob/master/R/sfactorDdn.R)  
 - [Reaction-Rate](https://github.com/RafaelSdeSouza/nuclear/blob/master/R/sfactorDdn.R) 
 - [Simulated data](https://github.com/RafaelSdeSouza/nuclear/blob/master/data/ddn.RData)
 - [Measured data]()  
 
-### d(d,p)<sup>3</sup>H
+#### d(d,p)<sup>3</sup>H
 
 - [Theoretical S-factor](https://github.com/RafaelSdeSouza/nuclear/blob/master/R/sfactorDdp.R)  
 - [Reaction-Rate]() 
