@@ -22,8 +22,8 @@
 #' @param e0 e0
 #' @param gi  gi
 #' @param gf  gf
-#' @param r_i r_i
-#' @param r_f r_f
+#' @param ri ri
+#' @param rf rf
 #' @return S-factor
 #' @import gsl
 #' @examples

@@ -17,9 +17,9 @@ sfactorTdn(e0 = e0, gi = gi, gf = gf, ri = ri, rf = rf)
 
 \item{gf}{gf}
 
-\item{r_i}{r_i}
+\item{ri}{ri}
 
-\item{r_f}{r_f}
+\item{rf}{rf}
 }
 \value{
 S-factor

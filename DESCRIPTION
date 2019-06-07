@@ -4,7 +4,7 @@ Title: Functions to estimate S-factor for nuclear reactions
 Version: 0.2
 Author: Rafael S. de Souza <drsouza@email.unc.edu>
 Maintainer: Rafael S. de Souza <drsouza@email.unc.edu>
-Imports: gsl, coda, rjags, lattice, R2jags, boot
+Imports: gsl, coda, rjags, lattice, R2jags, boot, ggplot2
 Description: Functions to estimate S-factor
 License: GPL (>= 3)
 Encoding: UTF-8
