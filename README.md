@@ -49,6 +49,3 @@ devtools::install_github("rafaelsdesouza/nuclear")
 
 [C. Iliadis, K.S. Anderson, A. Coc, F.X. Timmes, and S. Starrfield](http://iopscience.iop.org/article/10.3847/0004-637X/831/1/107/meta), *Bayesian Estimation of Thermonuclear Reaction Rates*, Astrophys. J. 831, 107 (2016).
 
-R Core Team (2014). R: A language and environment for statistical computing. R
-Foundation for Statistical Computing, Vienna, Austria. URL [http://www.R-project.org/](http://www.
--project.org/).
