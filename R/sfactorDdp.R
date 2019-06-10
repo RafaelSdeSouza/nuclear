@@ -36,9 +36,9 @@
 #'
 #'
 sfactorDdp <- function(ecm){
-  data(ddp)
-  th <- approxfun(ddp[,1], ddp[,2])
-  SF <- th(ecm)*1e-3
+  data(ddp_th)
+  th <- approxfun(ddp_th[,1], ddp_th[,2])
+  SF <- th(ecm)
   return(SF = SF)
 }
 

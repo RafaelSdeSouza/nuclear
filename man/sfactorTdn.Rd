@@ -8,9 +8,11 @@
 The function has five arguments:  ecm, e0, gi, gf, ri, rf}
 }}
 \usage{
-sfactorTdn(e0 = e0, gi = gi, gf = gf, ri = ri, rf = rf)
+sfactorTdn(ecm = ecm, e0 = e0, gi = gi, gf = gf, ri = ri, rf = rf)
 }
 \arguments{
+\item{ecm}{ecm}
+
 \item{e0}{e0}
 
 \item{gi}{gi}

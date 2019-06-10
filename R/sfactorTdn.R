@@ -14,11 +14,12 @@
 #' @title  Estimate Astrophysical S-factor
 #' @description Provides a confusion matrix of classification statistics following logistic regression.
 #' @aliases sfactorTdn
-#' @usage sfactorTdn(e0 = e0, gi = gi, gf = gf, ri = ri, rf = rf)
+#' @usage sfactorTdn(ecm = ecm, e0 = e0, gi = gi, gf = gf, ri = ri, rf = rf)
 #' @format \describe{
 #' \item{x}{
 #' The function has five arguments:  ecm, e0, gi, gf, ri, rf}
 #' }
+#' @param ecm ecm
 #' @param e0 e0
 #' @param gi  gi
 #' @param gf  gf

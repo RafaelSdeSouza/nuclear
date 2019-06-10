@@ -37,9 +37,9 @@
 #'
 #'
 sfactorDpg <- function(ecm,a.scale=1){
-  data(dpg)
-  th <- approxfun(dpg[,1], dpg[,2])
-  SF <- a.scale*th(ecm)*1e-6
+  data(dpg_th)
+  th <- approxfun(dpg_th[,1], dpg_th[,2])
+  SF <- a.scale*th(ecm)
   return(SF = SF)
 }
 
