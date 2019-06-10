@@ -17,9 +17,10 @@
 #' @usage sfactorDdn(ecm = ecm)
 #' @format \describe{
 #' \item{x}{
-#' The function has one arguments:  ecm}
+#' The function has one arguments:  ecm, a.scale}
 #' }
 #' @param ecm ecm
+#' @param a.scale a.scale
 #' @return S-factor
 #' @examples
 #' library(nuclear)
@@ -35,10 +36,10 @@
 #' @export
 #'
 #'
-sfactorDdn <- function(ecm){
+sfactorDdn <- function(ecm,a.scale=1){
   data(ddn_th)
   th <- approxfun(ddn_th[,1], ddn_th[,2])
-  SF <- th(ecm)
+  SF <- a.scale*th(ecm)
   return(SF = SF)
 }
 
