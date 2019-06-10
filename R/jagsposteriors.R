@@ -78,17 +78,17 @@
 #' jagsfit
 #'
 #' # Results for beta.rain only
-#' jagsresults(x=jagsfit, param='beta.rain')
+#' jagsposteriors(x=jagsfit, param='beta.rain')
 #'
 #' # Results for 'a' and 'sd' only
-#' jagsresults(x=jagsfit, param=c('a', 'sd'))
-#' jagsresults(x=jagsfit, param=c('a', 'sd'),
+#' jagsposteriors(x=jagsfit, param=c('a', 'sd'))
+#' jagsposteriors(x=jagsfit, param=c('a', 'sd'),
 #'             probs=c(0.01, 0.025, 0.1, 0.25, 0.5, 0.75, 0.9, 0.975))
 #'
 #' # Results for all parameters including the string 'beta'
-#' jagsresults(x=jagsfit, param='beta', regex=TRUE)
+#' jagsposteriors(x=jagsfit, param='beta', regex=TRUE)
 #'
-jagsresults <- function(x, params, regex=FALSE, invert=FALSE,
+jagsposteriors <- function(x, params, regex=FALSE, invert=FALSE,
                         probs=c(0.025, 0.25, 0.5, 0.75, 0.975), signif, ...) {
   if(!regex) {
     params <- paste0(gsub('(?=\\.|\\[|\\])', '\\1\\\\', params, perl=TRUE),

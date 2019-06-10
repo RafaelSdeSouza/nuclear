@@ -35,10 +35,10 @@
 #' @export
 #'
 #'
-sfactorHe3ag <- function(ecm){
-  data(He3ag)
-  th <- approxfun(He3ag[,1], He3ag[,2])
-  SF <- th(ecm)
+sfactorHe3ag <- function(ecm,a.scale=1){
+  data(He3ag_th)
+  th <- approxfun(He3ag_th[,1], He3ag_th[,2])
+  SF <- a.scale*th(ecm)
   return(SF = SF)
 }
 

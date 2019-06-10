@@ -14,12 +14,13 @@
 #' @title  Estimate Astrophysical S-factor
 #' @description Provides a confusion matrix of classification statistics following logistic regression.
 #' @aliases sfactorDdp
-#' @usage sfactorDdp(ecm = ecm)
+#' @usage sfactorDdp(ecm = ecm, a.scale = a.scale)
 #' @format \describe{
 #' \item{x}{
-#' The function has one arguments:  ecm}
+#' The function has two  arguments:  ecm, a.scale }
 #' }
 #' @param ecm ecm
+#' @param a.scale  a.scale
 #' @return S-factor
 #' @examples
 #' library(nuclear)
@@ -35,10 +36,10 @@
 #' @export
 #'
 #'
-sfactorDdp <- function(ecm){
+sfactorDdp <- function(ecm,a.scale=1){
   data(ddp_th)
   th <- approxfun(ddp_th[,1], ddp_th[,2])
-  SF <- th(ecm)
+  SF <- a.scale*th(ecm)
   return(SF = SF)
 }
 
