@@ -5,13 +5,15 @@
 \title{Estimate Astrophysical S-factor}
 \format{\describe{
 \item{x}{
-The function has one arguments:  ecm}
+The function has two  arguments:  ecm, a.scale }
 }}
 \usage{
-sfactorDdp(ecm = ecm)
+sfactorDdp(ecm = ecm, a.scale = a.scale)
 }
 \arguments{
 \item{ecm}{ecm}
+
+\item{a.scale}{a.scale}
 }
 \value{
 S-factor

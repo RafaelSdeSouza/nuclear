@@ -39,9 +39,14 @@
 #' @export
 #'
 #'
+#'
+#'
 sfactorHe3He3 <- function(ecm,S0, S1, S2,i.screen){
-SF <- (exp(2.429819509*i.screen*(ecm^(-1.5)))) *
-    (S0 + S1*ecm +  0.5*S2*ecm^2)
+  M0 = 3.0160293; M1 = 3.0160293;		# masses (amu) of p and d
+  Z0 = 2; Z1 = 2 ;			# charges of t and d
+  mue <- (M0*M1)/(M0 + M1) # Reduced Center of Mass
+
+SF <- (exp(0.98951013*Z0*Z1*sqrt(mue)/(2*ecm^(3/2))*i.screen))*(S0 + S1*ecm + 0.5*S2*ecm^2)
 
   return(SF = SF)
 }

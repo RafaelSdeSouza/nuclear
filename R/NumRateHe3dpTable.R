@@ -13,8 +13,8 @@
 #
 #' @title  Estimate reaction rates over a temperature grid
 #' @description Provides a reaction rate table
-#' @aliases NumRateHe3dpLoop
-#' @usage NumRateHe3dpLoop (mat = mat, vars=vars, N = N, T9  =T9)
+#' @aliases NumRateHe3dpTable
+#' @usage NumRateHe3dpTable (mat = mat, vars=vars, N = N, T9  =T9)
 #' @format \describe{
 #' \item{x}{
 #' The function has 4 arguments: mat, vars, N, T9}
@@ -23,15 +23,15 @@
 #' @param vars  vars
 #' @param N    N
 #' @param T9  T9
-#' @return NumRateHe3dpLoop
+#' @return NumRateHe3dpTable
 #' @import gsl
 #' @author Rafael de Souza, UNC,  and Christian Illiadis, UNC
 #'
-#' @keywords NumRateHe3dpLoop
+#' @keywords NumRateHe3dpTable
 #' @export
 #'
 #'
-NumRateHe3dpLoop <- function(mat, vars=c("e0","gi","gf","ri","rf"), N = 1000,T9){
+NumRateHe3dpTable <- function(mat, vars=c("e0","gi","gf","ri","rf"), N = 1000,T9){
 #  mcdat_I <- as.data.frame(do.call(rbind, as.mcmc(mat)[,vars]))
   mcdat_I <- mat[,vars]
   index <- sample(1:nrow(mcdat_I ),size=N,replace=FALSE)
