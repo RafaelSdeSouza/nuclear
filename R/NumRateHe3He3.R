@@ -69,7 +69,7 @@ NumRateHe3He3 <- Vectorize(function(S0,S1,S2,i.screen,T9){
 
 
 
-
+NumRateHe3He3(5.190775,-2.768626,1.12796,0,1)
 
 
 
