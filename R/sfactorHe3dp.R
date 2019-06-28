@@ -42,8 +42,7 @@
 #' @export
 #'
 #'
-sfactorHe3dp <- function(ecm,e0,gi,gf, ri = 6, rf =5, ue = 0){
-  er = e0
+sfactorHe3dp <- function(ecm,e0,gi,gf, ri = 6, rf = 5, ue = 0){
   # Constants
   m1_i = 3.01493; m2_i = 2.01355;		# masses (amu) of t and d
   m1_f = 4.00151; m2_f = 1.007277;	# masses (amu) of n and 4He
@@ -73,8 +72,8 @@ sfactorHe3dp <- function(ecm,e0,gi,gf, ri = 6, rf =5, ue = 0){
   p_i <- rho_i/(P3$val_F^2 + P3$val_G^2)
   s_i <- rho_i*(P3$val_F*P3$val_Fp + P3$val_G*P3$val_Gp)/(P3$val_F^2 + P3$val_G^2)
   # shift factor at energy Er
-  xeta_i = eta_a/(sqrt(er))
-  xrho_i = rho_a*(sqrt(er))
+  xeta_i = eta_a/(sqrt(e0))
+  xrho_i = rho_a*(sqrt(e0))
   PX1 <- coulomb_wave_FG(xeta_i, xrho_i, la, k = 0)
   b_i <- xrho_i*(PX1$val_F*PX1$val_Fp + PX1$val_G*PX1$val_Gp)/(PX1$val_F^2 + PX1$val_G^2)
   # partial width
@@ -90,8 +89,8 @@ sfactorHe3dp <- function(ecm,e0,gi,gf, ri = 6, rf =5, ue = 0){
   p_f <- rho_f/(P4$val_F^2 + P4$val_G^2)
   s_f <- rho_f*(P4$val_F*P4$val_Fp + P4$val_G*P4$val_Gp)/(P4$val_F^2 + P4$val_G^2)
   # shift factor at energy Er+Q
-  xeta_f = eta_b/(sqrt(er + Q))
-  xrho_f = rho_b*(sqrt(er + Q))
+  xeta_f = eta_b/(sqrt(e0 + Q))
+  xrho_f = rho_b*(sqrt(e0 + Q))
   PX2 <- coulomb_wave_FG(xeta_f, xrho_f, lb, k = 0)
   b_f <- xrho_f*(PX2$val_F*PX2$val_Fp + PX2$val_G*PX2$val_Gp)/(PX2$val_F^2 + PX2$val_G^2)
   # partial width

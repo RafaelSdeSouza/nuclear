@@ -13,7 +13,7 @@
 #' @title  Estimate reaction rates
 #' @description Calculate numerical reaction rates
 #' @aliases NumRateHe3He3
-#' @usage NumRateHe3He3 (S0 = S0,S1 = S1,S2 = S2,i.screen = i.screen,T9 = T9)
+#' @usage NumRateHe3He3(S0 = S0,S1 = S1,S2 = S2,i.screen = i.screen,T9 = T9)
 #' @format \describe{
 #' \item{x}{
 #' The function has two  arguments: S0,S1,S2,i.screen, T9}
@@ -27,7 +27,7 @@
 #' @examples
 #' library(nuclear)
 #'
-#'  NumRateHe3He3 (1,1)
+#'  NumRateHe3He3(1,1)
 #'
 #' @author Rafael de Souza, UNC,  and Christian Illiadis, UNC, and HK
 #'
@@ -65,12 +65,6 @@ NumRateHe3He3 <- Vectorize(function(S0,S1,S2,i.screen,T9){
   return(Nasv = out)
 }
 )
-
-
-
-
-NumRateHe3He3(5.190775,-2.768626,1.12796,0,1)
-
 
 
 
