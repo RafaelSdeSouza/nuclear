@@ -16,4 +16,9 @@ knitr::opts_chunk$set(
 
 ```{r setup}
 library(nuclear)
+
+data("dpg")
+head(dpg)
+
+plot(dpg$E,dpg$S,log="x")
 ```
