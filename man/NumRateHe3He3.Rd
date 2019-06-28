@@ -8,7 +8,7 @@
 The function has two  arguments: S0,S1,S2,i.screen, T9}
 }}
 \usage{
-NumRateHe3He3 (S0 = S0,S1 = S1,S2 = S2,i.screen = i.screen,T9 = T9)
+NumRateHe3He3(S0 = S0,S1 = S1,S2 = S2,i.screen = i.screen,T9 = T9)
 }
 \arguments{
 \item{S0}{S0}
@@ -30,7 +30,7 @@ Calculate numerical reaction rates
 \examples{
 library(nuclear)
 
- NumRateHe3He3 (1,1)
+ NumRateHe3He3(1,1)
 
 }
 \author{
