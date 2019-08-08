@@ -30,7 +30,7 @@ Calculate numerical reaction rates
 \examples{
 library(nuclear)
 
- NumRateHe3He3(1,1)
+ NumRateHe3He3(1,1,1,0,1e4)
 
 }
 \author{
