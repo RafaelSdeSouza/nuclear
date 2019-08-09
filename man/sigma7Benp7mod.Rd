@@ -24,6 +24,8 @@ ra_1 = ra_1, rb_1 = rb_1, jr_1 = jr_1,la_1 = la_1, lb_1 = lb_1)
 
 \item{ga_1}{ga_1}
 
+\item{g_b}{g_b}
+
 \item{ra_1}{ra_1}
 
 \item{rb_1}{rb_1}
@@ -33,8 +35,6 @@ ra_1 = ra_1, rb_1 = rb_1, jr_1 = jr_1,la_1 = la_1, lb_1 = lb_1)
 \item{la_1}{la_1}
 
 \item{lb_1}{lb_1}
-
-\item{g_b}{g_b}
 }
 \value{
 Sigma
